@@ -1,0 +1,26 @@
+<odoo>
+  <data>
+    <record id="view_employee_form_custom" model="ir.ui.view">
+      <field name="name">hr.employee.form.inherit.custom</field>
+      <field name="model">hr.employee</field>
+      <field name="inherit_id" ref="hr.view_employee_form"/>
+      <field name="arch" type="xml">
+
+        <!-- Добавим новую вкладку в блок notebook -->
+        <xpath expr="//sheet/notebook" position="inside">
+          <page string="Дополнительно">
+            <group>
+              <field name="iin"/>
+              <field name="contract_number"/>
+              <field name="hiring_date"/>
+              <field name="internal_department"/>
+              <field name="internal_job_title"/>
+              <field name="company_id" string="Название компании"/>
+            </group>
+          </page>
+        </xpath>
+
+      </field>
+    </record>
+  </data>
+</odoo>
