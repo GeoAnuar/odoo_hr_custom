@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- 1 -->
+    <record id="hr_stage_decision" model="hr.recruitment.stage">
+        <field name="name">Получение решения о принятии в штат</field>
+        <field name="sequence">1</field>
+        <field name="fold">False</field>
+    </record>
+
+    <!-- 2 -->
+    <record id="hr_stage_documents" model="hr.recruitment.stage">
+        <field name="name">Получение документов от кандидата</field>
+        <field name="sequence">2</field>
+        <field name="fold">False</field>
+    </record>
+
+    <!-- 3 -->
+    <record id="hr_stage_contract" model="hr.recruitment.stage">
+        <field name="name">Составление ТД, Приказ, НДА</field>
+        <field name="sequence">3</field>
+        <field name="fold">False</field>
+    </record>
+
+    <!-- 4 -->
+    <record id="hr_stage_signing" model="hr.recruitment.stage">
+        <field name="name">Подписание ТД и приказа, НДА</field>
+        <field name="sequence">4</field>
+        <field name="fold">False</field>
+    </record>
+
+    <!-- 5 -->
+    <record id="hr_stage_to_employee" model="hr.recruitment.stage">
+        <field name="name">Передача экземпляра сотруднику</field>
+        <field name="sequence">5</field>
+        <field name="fold">False</field>
+    </record>
+
+    <!-- 6 -->
+    <record id="hr_stage_to_accounting" model="hr.recruitment.stage">
+        <field name="name">Передача в бухгалтерию приказа и ТД</field>
+        <field name="sequence">6</field>
+        <field name="fold">False</field>
+    </record>
+
+    <!-- 7 -->
+    <record id="hr_stage_upload" model="hr.recruitment.stage">
+        <field name="name">Занесение в систему документы</field>
+        <field name="sequence">7</field>
+        <field name="fold">False</field>
+    </record>
+
+    <!-- 8 -->
+    <record id="hr_stage_personnel_file" model="hr.recruitment.stage">
+        <field name="name">Формирование личного дела сотрудника</field>
+        <field name="sequence">8</field>
+        <field name="fold">False</field>
+    </record>
+
+    <!-- 9 -->
+    <record id="hr_stage_cv_format" model="hr.recruitment.stage">
+        <field name="name">CV под формат Геометрии</field>
+        <field name="sequence">9</field>
+        <field name="fold">False</field>
+    </record>
+</odoo>
