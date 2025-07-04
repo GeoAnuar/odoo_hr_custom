@@ -16,6 +16,7 @@
               <field name="internal_department"/>
               <field name="internal_job_title"/>
               <field name="company_id" string="Название компании"/>
+              <field name="time_of_job"/>
             </group>
           </page>
         </xpath>

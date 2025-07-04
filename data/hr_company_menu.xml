@@ -1,0 +1,14 @@
+<odoo>
+  <data>
+
+    <!-- Главное меню "Компании" -->
+    <menuitem 
+        id="menu_hr_company_root"
+        name="Компании"
+        parent="hr.menu_hr_root"
+        sequence="90"
+        action="base.action_res_company_form"
+        groups="base.group_user"/>
+
+  </data>
+</odoo>

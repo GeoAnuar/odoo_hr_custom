@@ -8,6 +8,6 @@ class HrEmployee(models.Model):
     hiring_date = fields.Date(string='Дата устройства')
     internal_department = fields.Many2one('hr.department', string='Отдел')
     internal_job_title = fields.Many2one('hr.job', string='Должность по внутренней структуре')
-    
+    time_of_job = fields.Char(string='Стаж')
 
    
