@@ -5,7 +5,8 @@
     'data': [
         'views/hr_employee_views.xml',
         'data/delete_default_stages.xml',  
-        'data/stage_data.xml',       
+        'data/stage_data.xml',
+        'data/hr_job_data.xml',       
     ],
     'installable': True,
     'application': True,

@@ -1,0 +1,26 @@
+<odoo>
+  <record id="director" model="hr.job">
+    <field name="name">Директор</field>
+  </record>
+  <record id="tech_director" model="hr.job">
+    <field name="name">Технический директор</field>
+  </record>
+  <record id="team_lead" model="hr.job">
+    <field name="name">Тимлид</field>
+  </record>
+  <record id="pre_lead" model="hr.job">
+    <field name="name">Прелид</field>
+  </record>
+  <record id="bi_inginer" model="hr.job">
+    <field name="name">Bi-инженер</field>
+  </record>
+  <record id="data_inginer" model="hr.job">
+    <field name="name">Дата инженер</field>
+  </record>
+  <record id="business_assistent" model="hr.job">
+    <field name="name">Бизнес-ассистент</field>
+  </record>
+  <record id="project-manager" model="hr.job">
+    <field name="name">Руководитель проектов</field>
+  </record>
+</odoo>
