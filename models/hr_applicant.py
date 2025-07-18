@@ -117,3 +117,7 @@ class HrApplicant(models.Model):
     # Stage 8: Формирование личного дела сотрудника
     employee_file_pdf = fields.Binary(string="Личное дело (PDF)")
     employee_file_filename = fields.Char()
+
+    # Stage 9: CV под формат Геометрии
+    geometry_cv_pdf = fields.Binary(string="Резюме по шаблону Геометрии (PDF)")
+    geometry_cv_filename = fields.Char()

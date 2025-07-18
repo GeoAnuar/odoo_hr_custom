@@ -84,6 +84,13 @@
           <field name="employee_file_pdf" filename="employee_file_filename"/>
         </group>
 
+        <!-- 📍 Блок 9: CV под формат Геометрии -->
+        <group string="Стадия 9: CV под формат Геометрии"
+               modifiers='{"invisible": [["stage_id.name", "!=", "CV под формат Геометрии"]]}' >
+          <field name="geometry_cv_pdf" filename="geometry_cv_filename"/>
+        </group>
+
+
 
       </xpath>
     </field>
