@@ -47,8 +47,22 @@
                   modifiers='{"invisible": [["order_template", "=", false]]}'/>
         </group>
 
+        <!-- 📍 Блок 4: Подписание ТД и приказа, НДА -->
+        <group string="Стадия 4: Подписание ТД и приказа, НДА"
+               modifiers='{"invisible": [["stage_id.name", "!=", "Подписание ТД и приказа, НДА"]]}' >
+          <field name="contract_signed"/>
+          <field name="order_signed"/>
+          <field name="nda_signed"/>
+        </group>
+
+        <!-- 📍 Блок 5: Передача экземпляра сотруднику -->
+        <group string="Стадия 5: Передача экземпляра сотруднику"
+               modifiers='{"invisible": [["stage_id.name", "!=", "Передача экземпляра сотруднику"]]}' >
+          <field name="documents_transferred"/>
+          <field name="document_transfer_date"/>
+        </group>
+
       </xpath>
     </field>
   </record>
 </odoo>
-

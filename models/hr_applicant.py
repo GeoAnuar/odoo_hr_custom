@@ -89,3 +89,13 @@ class HrApplicant(models.Model):
                 if self.partner_id else [],
             }
         }
+    
+
+    # Stage 4
+    contract_signed = fields.Boolean(string="ТД подписан")
+    order_signed = fields.Boolean(string="Приказ подписан")
+    nda_signed = fields.Boolean(string="НДА подписан")
+
+    # Stage 5
+    documents_transferred = fields.Boolean(string="Документы переданы сотруднику")
+    document_transfer_date = fields.Date(string="Дата передачи документов")
