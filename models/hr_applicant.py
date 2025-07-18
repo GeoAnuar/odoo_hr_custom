@@ -59,3 +59,33 @@ class HrApplicant(models.Model):
             note="Пожалуйста, соберите все документы: диплом, резюме, УДО и др.",
             deadline=fields.Date.today() + fields.Date.to_date("3 days")
         )
+
+
+    # PDF-файлы
+    employment_contract_pdf = fields.Binary(string="Трудовой договор")
+    employment_contract_filename = fields.Char()
+
+    nda_pdf = fields.Binary(string="НДА")
+    nda_filename = fields.Char()
+
+    salary_agreement_pdf = fields.Binary(string="Соглашение о зарплате")
+    salary_agreement_filename = fields.Char()
+
+    # Шаблон приказа
+    order_template = fields.Many2one('sign.template', string="Шаблон приказа")
+
+    def action_sign_order(self):
+        """Открытие документа для подписания"""
+        self.ensure_one()
+        template = self.order_template
+        if not template:
+            return
+        return {
+            'type': 'ir.actions.client',
+            'tag': 'sign.Document',
+            'params': {
+                'template_id': template.id,
+                'signers': [{'role': r.role_id.id, 'partner_id': self.partner_id.id}]
+                if self.partner_id else [],
+            }
+        }

@@ -33,7 +33,22 @@
           <field name="bank_details_pdf" filename="bank_details_filename"/>
         </group>
 
+        <!-- 📍 Блок 3: Составление ТД, Приказ, НДА -->
+        <group string="Стадия 3: Составление ТД, Приказ, НДА"
+               modifiers='{"invisible": [["stage_id.name", "!=", "Составление ТД, Приказ, НДА"]]}' >
+          <field name="employment_contract_pdf" filename="employment_contract_filename"/>
+          <field name="nda_pdf" filename="nda_filename"/>
+          <field name="salary_agreement_pdf" filename="salary_agreement_filename"/>
+          <field name="order_template"/>
+          <button name="action_sign_order"
+                  type="object"
+                  string="Подписать приказ"
+                  class="btn-primary"
+                  modifiers='{"invisible": [["order_template", "=", false]]}'/>
+        </group>
+
       </xpath>
     </field>
   </record>
 </odoo>
+
