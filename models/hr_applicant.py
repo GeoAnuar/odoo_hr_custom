@@ -109,3 +109,7 @@ class HrApplicant(models.Model):
                 raise UserError(_("Шаблон email для бухгалтерии не найден."))
             template.send_mail(applicant.id, force_send=True)
             applicant.accounting_notified = True
+
+    # Stage 7: Занесение вручную подписанных документов
+    signed_documents_pdf = fields.Binary(string="Подписанные документы (PDF)")
+    signed_documents_filename = fields.Char()
