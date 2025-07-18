@@ -1,0 +1,39 @@
+<odoo>
+  <record id="view_hr_applicant_form_custom" model="ir.ui.view">
+    <field name="name">hr.applicant.form.custom</field>
+    <field name="model">hr.applicant</field>
+    <field name="inherit_id" ref="hr_recruitment.hr_applicant_view_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//form/sheet/group" position="after">
+
+        <!-- 📍 Блок 1: Решение о принятии -->
+        <group string="Стадия 1: Решение о принятии"
+               modifiers='{"invisible": [["stage_id.name", "!=", "Получение решения о принятии в штат"]]}' >
+          <field name="expected_salary"/>
+          <field name="employment_date"/>
+          <field name="trial_start"/>
+          <field name="trial_end"/>
+          <field name="phone"/>
+          <field name="recruiter_id"/>
+          <field name="interviewer_ids"/>
+        </group>
+
+        <!-- 📍 Блок 2: Получение документов -->
+        <group string="Стадия 2: Документы кандидата"
+               modifiers='{"invisible": [["stage_id.name", "!=", "Получение документов от кандидата"]]}' >
+          <field name="diploma_pdf" filename="diploma_filename"/>
+          <field name="attachment_pdf" filename="attachment_filename"/>
+          <field name="identity_pdf" filename="identity_filename"/>
+          <field name="resume_pdf" filename="resume_filename"/>
+          <field name="certificate_pdf" filename="certificate_filename"/>
+          <field name="registration_address_pdf" filename="registration_address_filename"/>
+          <field name="residence_address_pdf" filename="residence_address_filename"/>
+          <field name="email"/>
+          <field name="phone"/>
+          <field name="bank_details_pdf" filename="bank_details_filename"/>
+        </group>
+
+      </xpath>
+    </field>
+  </record>
+</odoo>
