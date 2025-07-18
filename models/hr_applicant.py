@@ -99,3 +99,13 @@ class HrApplicant(models.Model):
     # Stage 5
     documents_transferred = fields.Boolean(string="Документы переданы сотруднику")
     document_transfer_date = fields.Date(string="Дата передачи документов")
+
+    accounting_notified = fields.Boolean(string="Уведомление отправлено в бухгалтерию", default=False)
+
+    def action_notify_accounting(self):
+        for applicant in self:
+            template = self.env.ref('your_module.email_template_notify_accounting', raise_if_not_found=False)
+            if not template:
+                raise UserError(_("Шаблон email для бухгалтерии не найден."))
+            template.send_mail(applicant.id, force_send=True)
+            applicant.accounting_notified = True
