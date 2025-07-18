@@ -113,3 +113,7 @@ class HrApplicant(models.Model):
     # Stage 7: Занесение вручную подписанных документов
     signed_documents_pdf = fields.Binary(string="Подписанные документы (PDF)")
     signed_documents_filename = fields.Char()
+
+    # Stage 8: Формирование личного дела сотрудника
+    employee_file_pdf = fields.Binary(string="Личное дело (PDF)")
+    employee_file_filename = fields.Char()

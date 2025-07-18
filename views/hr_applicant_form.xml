@@ -78,6 +78,13 @@
           <field name="signed_documents_pdf" filename="signed_documents_filename"/>
         </group>
 
+        <!-- 📍 Блок 8: Формирование личного дела сотрудника -->
+        <group string="Стадия 8: Формирование личного дела"
+               modifiers='{"invisible": [["stage_id.name", "!=", "Формирование личного дела сотрудника"]]}' >
+          <field name="employee_file_pdf" filename="employee_file_filename"/>
+        </group>
+
+
       </xpath>
     </field>
   </record>
