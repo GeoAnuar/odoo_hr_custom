@@ -7,8 +7,7 @@
       <xpath expr="//form/sheet/group" position="after">
 
         <!-- 📍 Блок 1: Решение о принятии -->
-        <group string="Стадия 1: Решение о принятии"
-               modifiers='{"invisible": [["stage_id.name", "!=", "Получение решения о принятии в штат"]]}' >
+        <group string="Стадия 1: Решение о принятии" invisible="stage_id != %(hr_custom.hr_stage_decision)d">
           <field name="expected_salary"/>
           <field name="employment_date"/>
           <field name="trial_start"/>
@@ -18,77 +17,7 @@
           <field name="interviewer_ids"/>
         </group>
 
-        <!-- 📍 Блок 2: Получение документов -->
-        <group string="Стадия 2: Документы кандидата"
-               modifiers='{"invisible": [["stage_id.name", "!=", "Получение документов от кандидата"]]}' >
-          <field name="diploma_pdf" filename="diploma_filename"/>
-          <field name="attachment_pdf" filename="attachment_filename"/>
-          <field name="identity_pdf" filename="identity_filename"/>
-          <field name="resume_pdf" filename="resume_filename"/>
-          <field name="certificate_pdf" filename="certificate_filename"/>
-          <field name="registration_address_pdf" filename="registration_address_filename"/>
-          <field name="residence_address_pdf" filename="residence_address_filename"/>
-          <field name="email"/>
-          <field name="phone"/>
-          <field name="bank_details_pdf" filename="bank_details_filename"/>
-        </group>
-
-        <!-- 📍 Блок 3: Составление ТД, Приказ, НДА -->
-        <group string="Стадия 3: Составление ТД, Приказ, НДА"
-               modifiers='{"invisible": [["stage_id.name", "!=", "Составление ТД, Приказ, НДА"]]}' >
-          <field name="employment_contract_pdf" filename="employment_contract_filename"/>
-          <field name="nda_pdf" filename="nda_filename"/>
-          <field name="salary_agreement_pdf" filename="salary_agreement_filename"/>
-          <field name="order_template"/>
-          <button name="action_sign_order"
-                  type="object"
-                  string="Подписать приказ"
-                  class="btn-primary"
-                  modifiers='{"invisible": [["order_template", "=", false]]}'/>
-        </group>
-
-        <!-- 📍 Блок 4: Подписание ТД и приказа, НДА -->
-        <group string="Стадия 4: Подписание ТД и приказа, НДА"
-               modifiers='{"invisible": [["stage_id.name", "!=", "Подписание ТД и приказа, НДА"]]}' >
-          <field name="contract_signed"/>
-          <field name="order_signed"/>
-          <field name="nda_signed"/>
-        </group>
-
-        <!-- 📍 Блок 5: Передача экземпляра сотруднику -->
-        <group string="Стадия 5: Передача экземпляра сотруднику"
-               modifiers='{"invisible": [["stage_id.name", "!=", "Передача экземпляра сотруднику"]]}' >
-          <field name="documents_transferred"/>
-          <field name="document_transfer_date"/>
-        </group>
-
-        <!-- 📍 Блок 6: Передача в бухгалтерию -->
-        <group string="Стадия 6: Передача в бухгалтерию"
-               modifiers='{"invisible": [["stage_id.name", "!=", "Передача в бухгалтерию приказа и ТД"]]}' >
-          <field name="accounting_notified" readonly="1"/>
-          <button name="action_notify_accounting"
-                  type="object"
-                  string="Отправить в бухгалтерию"
-                  class="btn-primary"/>
-        </group>
-
-        <!-- 📍 Блок 7: Занесение вручную подписанных документов -->
-        <group string="Стадия 7: Занесение вручную подписанных документов"
-               modifiers='{"invisible": [["stage_id.name", "!=", "Занесение в системы документы"]]}' >
-          <field name="signed_documents_pdf" filename="signed_documents_filename"/>
-        </group>
-
-        <!-- 📍 Блок 8: Формирование личного дела сотрудника -->
-        <group string="Стадия 8: Формирование личного дела"
-               modifiers='{"invisible": [["stage_id.name", "!=", "Формирование личного дела сотрудника"]]}' >
-          <field name="employee_file_pdf" filename="employee_file_filename"/>
-        </group>
-
-        <!-- 📍 Блок 9: CV под формат Геометрии -->
-        <group string="Стадия 9: CV под формат Геометрии"
-               modifiers='{"invisible": [["stage_id.name", "!=", "CV под формат Геометрии"]]}' >
-          <field name="geometry_cv_pdf" filename="geometry_cv_filename"/>
-        </group>
+        
 
 
 
