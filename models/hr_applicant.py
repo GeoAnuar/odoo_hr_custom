@@ -11,7 +11,6 @@ class HrApplicant(models.Model):
     trial_end = fields.Date(string="Окончание испытательного срока")
     phone = fields.Char(string="Телефон")
     recruiter_id = fields.Many2one('res.users', string="Специалист по подбору кадров")
-    interviewer_ids = fields.Many2many('res.users', string="Интервьюеры")
     birth_date = fields.Date(string="Дата рождения")
     company_id = fields.Many2one('res.company', string="Компания")
 
@@ -32,16 +31,15 @@ class HrApplicant(models.Model):
     certificate_pdf = fields.Binary(string="Сертификат")
     certificate_filename = fields.Char()
 
-    registration_address_pdf = fields.Binary(string="Адрес прописки")
-    registration_address_filename = fields.Char()
+    registration_address = fields.Char(string="Адрес регистрации")
 
-    residence_address_pdf = fields.Binary(string="Адрес проживания")
-    residence_address_filename = fields.Char()
+    residence_address = fields.Char(string="Адрес проживания")
 
     email = fields.Char(string="Почта")
+
+    phone = fields.Char(string="Телефон")
     
-    bank_details_pdf = fields.Binary(string="Банковские реквизиты")
-    bank_details_filename = fields.Char()
+    bank_details_pdf = fields.Char(string="Банковские реквизиты")
 
     # Авто-действие: при переходе на 2 стадию
     @api.onchange('stage_id')

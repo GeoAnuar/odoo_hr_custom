@@ -6,7 +6,7 @@
     <field name="arch" type="xml">
       <xpath expr="//form/sheet/group" position="after">
 
-        <!-- 📍 Блок 1: Решение о принятии -->
+
         <group string="Стадия 1: Решение о принятии" invisible="stage_id != %(hr_custom.hr_stage_decision)d">
           <field name="expected_salary"/>
           <field name="birth_date"/>
@@ -16,10 +16,21 @@
           <field name="trial_end"/>
           <field name="phone"/>
           <field name="recruiter_id"/>
-          <field name="interviewer_ids"/>
         </group>
+  
 
-        
+        <group string="Стадия 2: Получение документов" invisible="stage_id != %(hr_custom.hr_stage_documents)d">
+          <field name="diploma_pdf"/>
+          <field name="attachment_pdf"/>
+          <field name="identity_pdf"/>
+          <field name="resume_pdf"/>
+          <field name="certificate_pdf"/>
+          <field name="registration_address"/>
+          <field name="residence_address"/>
+          <field name="email"/>
+          <field name="phone"/>
+          <field name="bank_details_pdf"/>
+        </group>
 
 
 
