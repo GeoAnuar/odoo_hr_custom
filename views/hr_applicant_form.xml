@@ -9,6 +9,8 @@
         <!-- 📍 Блок 1: Решение о принятии -->
         <group string="Стадия 1: Решение о принятии" invisible="stage_id != %(hr_custom.hr_stage_decision)d">
           <field name="expected_salary"/>
+          <field name="birth_date"/>
+          <field name="company_id"/>
           <field name="employment_date"/>
           <field name="trial_start"/>
           <field name="trial_end"/>

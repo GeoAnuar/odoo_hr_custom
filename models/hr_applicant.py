@@ -12,6 +12,9 @@ class HrApplicant(models.Model):
     phone = fields.Char(string="Телефон")
     recruiter_id = fields.Many2one('res.users', string="Специалист по подбору кадров")
     interviewer_ids = fields.Many2many('res.users', string="Интервьюеры")
+    birth_date = fields.Date(string="Дата рождения")
+    company_id = fields.Many2one('res.company', string="Компания")
+
 
     # 📌 Стадия 2: Получение документов от кандидата
     diploma_pdf = fields.Binary(string="Диплом")
