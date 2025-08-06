@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from odoo import models, fields, api, _
-from odoo.exceptions import UserError
+from odoo import models, fields, _
+from datetime import timedelta
 
 class HrApplicant(models.Model):
     _inherit = 'hr.applicant'
@@ -40,19 +40,21 @@ class HrApplicant(models.Model):
     bank_details_pdf = fields.Char(string="Банковские реквизиты")
 
     def write(self, vals):
-        result = super().write(vals)
-
         stage = self.env.ref('hr_custom.hr_stage_documents', raise_if_not_found=False)
 
-        # Проверяем, установлена ли нужная стадия
-        if stage and vals.get('stage_id') == stage.id:
-            for record in self:
-                # Отправляем email
-                self.env['mail.mail'].create({
-                    'subject': 'Собрать документы',
-                    'body_html': '<p>Собрать документы</p>',
-                    'email_to': 'anuarmoldakhmetov1917@gmail.com',
-                    'email_from': self.env.user.email or 'noreply@example.com',
-                }).send()
+        for record in self:
+            previous_stage_id = record.stage_id.id
+            result = super(HrApplicant, record).write(vals)
+            new_stage_id = vals.get('stage_id', record.stage_id.id)
+
+            if stage and previous_stage_id != stage.id and new_stage_id == stage.id:
+                business_assistant = self.env.user
+                record.activity_schedule(
+                    'mail.mail_activity_data_todo',
+                    user_id=business_assistant.id,
+                    summary='Собрать документы от кандидата',
+                    note='Пожалуйста, загрузите: диплом, приложение, УДО, резюме, справки и т.д.',
+                    date_deadline=fields.Date.context_today(record) + timedelta(days=3)
+                )
 
         return result
